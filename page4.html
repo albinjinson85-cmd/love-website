@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year 2026 ❤️</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background: radial-gradient(circle at top, #1a0033, #000);
+  overflow:hidden;
+  font-family: Arial, sans-serif;
+  text-align:center;
+  color:white;
+}
+
+/* Center Card */
+.card{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  background:rgba(255,255,255,0.08);
+  padding:40px;
+  border-radius:25px;
+  box-shadow:0 0 30px rgba(255,77,109,0.6);
+  display:none;
+}
+
+/* Countdown */
+#countdown{
+  font-size:6em;
+  font-weight:bold;
+  color:#ff4d6d;
+  text-shadow:0 0 20px #ff4d6d, 0 0 40px #ff99aa;
+  animation:pulse 1s infinite;
+}
+
+/* Glow text */
+h1{
+  font-size:3em;
+  color:#ff4d6d;
+  text-shadow:0 0 15px #ff4d6d, 0 0 30px #ff99aa;
+  animation:pulse 2s infinite;
+}
+
+p{
+  font-size:1.2em;
+  line-height:1.6;
+}
+
+/* Floating hearts */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:20px;
+  animation:floatUp linear infinite;
+  color:#ff4d6d;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0) scale(0.8); opacity:1;}
+  to{transform:translateY(-120vh) scale(1.4); opacity:0;}
+}
+
+@keyframes pulse{
+  0%{text-shadow:0 0 10px #ff4d6d;}
+  50%{text-shadow:0 0 35px #ff99aa;}
+  100%{text-shadow:0 0 10px #ff4d6d;}
+}
+
+/* Fireworks */
+.firework{
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation:explode 1.5s ease-out;
+}
+
+@keyframes explode{
+  0%{transform:scale(0); opacity:1;}
+  100%{transform:scale(15); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ⏳ Countdown -->
+<div id="countdown">5</div>
+
+<!-- 💖 Main Message -->
+<div class="card" id="newYearCard">
+  <h1>🎆 Happy New Year Ammuu 2026 🎆</h1>
+
+  <p style="margin-top:20px;">
+     We stayed strong… January 29 il thodangiya journey 2026 il ethi..I LOVE YOU Alisuu😘😘😘😘❤️💕💕💕💕 </p>
+</div>
+
+<script>
+/* Countdown Logic */
+let count = 5;
+const cd = document.getElementById("countdown");
+const card = document.getElementById("newYearCard");
+
+const timer = setInterval(()=>{
+  count--;
+  if(count > 0){
+    cd.innerHTML = count;
+  }else{
+    clearInterval(timer);
+    cd.style.display="none";
+    card.style.display="block";
+    startHearts();
+    startFireworks();
+  }
+},1000);
+
+/* Hearts */
+function startHearts(){
+  for(let i=0;i<30;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(4+Math.random()*4)+"s";
+    document.body.appendChild(h);
+  }
+}
+
+/* Fireworks */
+function startFireworks(){
+  setInterval(()=>{
+    let fw=document.createElement("div");
+    fw.className="firework";
+    fw.style.left=Math.random()*100+"vw";
+    fw.style.top=Math.random()*50+"vh";
+    fw.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    document.body.appendChild(fw);
+    setTimeout(()=>fw.remove(),1500);
+  },600);
+}
+</script>
+
+<!-- 🎵 Optional romantic background music -->
+<!--
+<audio autoplay loop>
+  <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+-->
+
+</body>
+</html>

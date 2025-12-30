@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>You Are My Everything</title>
+
+<style>
+body{
+  margin:0;
+  background: linear-gradient(#ffe5ec, #ffd6e0);
+  font-family: Arial, sans-serif;
+  text-align:center;
+  padding:40px 15px;
+  overflow:hidden;
+}
+
+/* 💎 Card */
+.card{
+  background:white;
+  padding:30px;
+  border-radius:22px;
+  max-width:450px;
+  margin:auto;
+  position:relative;
+  z-index:5;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(0.95);}
+  to{opacity:1; transform:scale(1);}
+}
+
+/* 💖 Animated Text */
+.love-text{
+  font-size:18px;
+  font-weight:bold;
+  color:#ff4d6d;
+  line-height:1.7;
+  animation: floatText 3s ease-in-out infinite;
+}
+
+@keyframes floatText{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-6px);}
+  100%{transform:translateY(0);}
+}
+
+/* ❤️ Floating Hearts */
+.heart{
+  position:fixed;
+  width:18px;
+  height:18px;
+  background:red;
+  transform:rotate(45deg);
+  animation: floatUp 6s linear infinite;
+  opacity:0.7;
+  z-index:1;
+}
+.heart::before,
+.heart::after{
+  content:"";
+  position:absolute;
+  width:18px;
+  height:18px;
+  background:inherit;
+  border-radius:50%;
+}
+.heart::before{top:-9px;}
+.heart::after{left:9px;}
+
+@keyframes floatUp{
+  0%{bottom:-10%; opacity:0;}
+  20%{opacity:1;}
+  100%{bottom:110%; opacity:0;}
+}
+
+/* ✨ Sparkles */
+.sparkle{
+  position:fixed;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  box-shadow:0 0 12px white;
+  animation: sparkle 4s infinite;
+  opacity:0;
+  z-index:2;
+}
+
+@keyframes sparkle{
+  0%{opacity:0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
+}
+
+/* 💌 Romantic Button */
+.romantic-btn{
+  position:relative;
+  margin-top:30px;
+  background: linear-gradient(45deg,#ff4d6d,#ff85a2);
+  color:white;
+  padding:16px 28px;
+  border:none;
+  border-radius:35px;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(255,77,109,0.7);
+  animation: heartbeat 2s infinite;
+  overflow:hidden;
+}
+
+/* 💓 Heartbeat */
+@keyframes heartbeat{
+  0%{transform:scale(1);}
+  25%{transform:scale(1.08);}
+  50%{transform:scale(1);}
+  75%{transform:scale(1.08);}
+  100%{transform:scale(1);}
+}
+
+/* ✨ Shimmer */
+.romantic-btn::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine{
+  0%{left:-100%;}
+  50%{left:100%;}
+  100%{left:100%;}
+}
+
+/* 💕 Mini hearts on button */
+.romantic-btn span{
+  position:absolute;
+  bottom:6px;
+  font-size:14px;
+  animation: miniHearts 2s infinite;
+}
+
+@keyframes miniHearts{
+  0%{opacity:0; transform:translateY(10px);}
+  50%{opacity:1;}
+  100%{opacity:0; transform:translateY(-25px);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ❤️ Floating Hearts -->
+<div class="heart" style="left:10%;"></div>
+<div class="heart" style="left:30%; background:pink; animation-delay:2s;"></div>
+<div class="heart" style="left:50%; background:#ff85a2; animation-delay:4s;"></div>
+<div class="heart" style="left:70%; background:orange; animation-delay:1s;"></div>
+<div class="heart" style="left:90%; background:purple; animation-delay:3s;"></div>
+
+<!-- ✨ Sparkles -->
+<div class="sparkle" style="top:20%; left:15%;"></div>
+<div class="sparkle" style="top:45%; left:75%;"></div>
+<div class="sparkle" style="top:70%; left:30%;"></div>
+<div class="sparkle" style="top:60%; left:55%;"></div>
+
+<div class="card">
+
+  <p class="love-text">
+    Appo nammal bharya bharthakkanmarakum orappa le 😘.<br><br>
+    2025 enth beautiful arunnu le.. nammal nammude feelings open aayi paranja varsham..
+    nammal nammale thanne kore manasilakkiya varsham.. nammal snehicha varsham..
+    kore adi okke ondayitoond.. but nammude snehathe ath baadichittilla...
+    enth happy arunnu nammal nn orkkanille ni....
+  </p>
+
+  <a href="page3.html">
+    <button class="romantic-btn">
+      nammukk ath onn kandalo Ammuu…
+      <span style="left:25%;">❤️</span>
+      <span style="left:55%; animation-delay:0.5s;">💖</span>
+      <span style="left:80%; animation-delay:1s;">💕</span>
+    </button>
+  </a>
+
+</div>
+
+</body>
+</html>
