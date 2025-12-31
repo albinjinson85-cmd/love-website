@@ -12,6 +12,12 @@ body{
   text-align:center;
   padding:40px 15px;
   overflow:hidden;
+  min-height:100vh;
+
+  /* ✅ Proper vertical centering */
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 /* 💎 Card */
@@ -20,16 +26,35 @@ body{
   padding:30px;
   border-radius:22px;
   max-width:450px;
-  margin:auto;
+  width:100%;
   position:relative;
   z-index:5;
   box-shadow:0 10px 30px rgba(0,0,0,0.2);
-  animation: fadeIn 2s ease;
+
+  /* ✨ Smooth entrance */
+  animation: floatIn 1.6s ease forwards;
 }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:scale(0.95);}
-  to{opacity:1; transform:scale(1);}
+/* ✨ Soft glow aura */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  border-radius:28px;
+  background: radial-gradient(circle, rgba(255,77,109,0.35), transparent 70%);
+  z-index:-1;
+}
+
+/* Entrance animation */
+@keyframes floatIn{
+  from{
+    opacity:0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0) scale(1.04);
+  }
 }
 
 /* 💖 Animated Text */
@@ -47,7 +72,7 @@ body{
   100%{transform:translateY(0);}
 }
 
-/* ❤️ Floating Hearts */
+/* ❤️ Floating Hearts (FULL SCREEN) */
 .heart{
   position:fixed;
   width:18px;
@@ -57,7 +82,9 @@ body{
   animation: floatUp 6s linear infinite;
   opacity:0.7;
   z-index:1;
+  top:100%;
 }
+
 .heart::before,
 .heart::after{
   content:"";
@@ -71,9 +98,9 @@ body{
 .heart::after{left:9px;}
 
 @keyframes floatUp{
-  0%{bottom:-10%; opacity:0;}
+  0%{transform: translateY(0) rotate(45deg); opacity:0;}
   20%{opacity:1;}
-  100%{bottom:110%; opacity:0;}
+  100%{transform: translateY(-130vh) rotate(45deg); opacity:0;}
 }
 
 /* ✨ Sparkles */
@@ -156,6 +183,13 @@ body{
   50%{opacity:1;}
   100%{opacity:0; transform:translateY(-25px);}
 }
+
+/* 📱 Mobile fine-tune */
+@media (max-width:480px){
+  .card{
+    transform: scale(1.05);
+  }
+}
 </style>
 </head>
 
@@ -197,3 +231,5 @@ body{
 
 </body>
 </html>
+
+
