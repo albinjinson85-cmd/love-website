@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- ✅ MOBILE VIEWPORT -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>For My Love ❤️</title>
 
 <style>
@@ -10,7 +14,7 @@ body{
   background: linear-gradient(#ff9a9e, #fad0c4);
   font-family: Arial, sans-serif;
   text-align: center;
-  padding: 40px 15px;
+  padding: 30px 12px;
   overflow: hidden;
 }
 
@@ -18,7 +22,8 @@ body{
 .card{
   background: white;
   border-radius: 25px;
-  padding: 30px;
+  padding: 25px;
+  width: 92%;
   max-width: 420px;
   margin: auto;
   position: relative;
@@ -37,7 +42,7 @@ body{
   font-size: 26px;
   font-weight: bold;
   color: #ff4d6d;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .special-text span{
@@ -71,9 +76,9 @@ body{
 /* 💕 Buttons */
 .btn{
   border:none;
-  padding:15px 30px;
+  padding:14px 26px;
   border-radius:30px;
-  font-size:18px;
+  font-size:17px;
   cursor:pointer;
   margin:10px;
   transition:0.3s;
@@ -101,8 +106,8 @@ body{
 /* ❤️ Floating Hearts */
 .heart{
   position: fixed;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background: red;
   transform: rotate(45deg);
   animation: floatUp 6s linear infinite;
@@ -111,17 +116,24 @@ body{
 .heart:before,.heart:after{
   content:"";
   position:absolute;
-  width:20px;
-  height:20px;
+  width:18px;
+  height:18px;
   background:inherit;
   border-radius:50%;
 }
-.heart:before{top:-10px;}
-.heart:after{left:10px;}
+.heart:before{top:-9px;}
+.heart:after{left:9px;}
 
 @keyframes floatUp{
   0%{bottom:-10%; opacity:1;}
   100%{bottom:110%; opacity:0;}
+}
+
+/* 📱 SMALL PHONES */
+@media (max-width:480px){
+  .special-text{font-size:22px;}
+  p{font-size:15px;}
+  .btn{font-size:16px;}
 }
 </style>
 </head>
@@ -183,7 +195,6 @@ body{
 
   <br>
 
-  <!-- ✅ YES / NO Buttons -->
   <button class="btn yes-btn" onclick="window.location.href='page2.html'">
     YES 💍
   </button>
@@ -208,5 +219,7 @@ function moveButton(){
 
 </body>
 </html>
+
+
 
 
