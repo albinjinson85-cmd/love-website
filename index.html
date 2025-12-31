@@ -1,11 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>For My Love ❤️</title>
 
     <style>
+
         body {
             margin: 0;
             background: linear-gradient(#ff9a9e, #fad0c4);
@@ -15,7 +21,6 @@
             height: 100vh;
             width: 100vw;
 
-            /* ✅ FORCES CONTENT TO THE EXACT CENTER OF THE SCREEN */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -23,12 +28,11 @@
             box-sizing: border-box;
         }
 
-        /* 💎 Card Design */
         .card {
             background: white;
             border-radius: 30px;
             padding: 35px 25px;
-            max-width: 380px; /* Best size for modern phones */
+            max-width: 380px;
             width: 100%;
             position: relative;
             z-index: 5;
@@ -37,7 +41,6 @@
             box-sizing: border-box;
         }
 
-        /* ✨ Soft Glow behind card */
         .card::before {
             content: "";
             position: absolute;
@@ -52,7 +55,6 @@
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* 🌸 Heading Animation */
         .special-text {
             font-size: 22px;
             font-weight: bold;
@@ -71,7 +73,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ✨ Body Text Lines */
         p { font-size: 16px; color: #444; margin: 15px 0; line-height: 1.5; }
         .fade { opacity: 0; animation: fadeInText 1s forwards; }
         .delay1 { animation-delay: 2.5s; }
@@ -79,7 +80,6 @@
         .delay3 { animation-delay: 4.5s; }
         @keyframes fadeInText { to { opacity: 1; } }
 
-        /* 💕 Buttons */
         .btn-group {
             margin-top: 30px;
             display: flex;
@@ -97,12 +97,64 @@
             cursor: pointer;
             transition: transform 0.2s;
             -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* 💖 MORE ANIMATED YES BUTTON */
         .yes-btn {
             background: linear-gradient(45deg, #ff4d6d, #ff85a2);
             color: white;
             box-shadow: 0 8px 15px rgba(255, 77, 109, 0.3);
+            animation: heartbeat 1.6s infinite;
+        }
+
+        /* ✨ Glow ring */
+        .yes-btn::before {
+            content: "";
+            position: absolute;
+            inset: -6px;
+            border-radius: 50px;
+            background: radial-gradient(circle, rgba(255,255,255,0.5), transparent 70%);
+            opacity: 0;
+            animation: glowPulse 1.6s infinite;
+        }
+
+        /* 🌈 Shine effect */
+        .yes-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 120%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.6),
+                transparent
+            );
+            animation: shine 2.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.08); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes glowPulse {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @keyframes shine {
+            0% { left: -120%; }
+            60% { left: 120%; }
+            100% { left: 120%; }
         }
 
         .no-btn {
@@ -111,7 +163,6 @@
             position: relative;
         }
 
-        /* ❤️ Floating Hearts */
         .heart {
             position: fixed;
             width: 18px;
@@ -140,7 +191,9 @@
             20% { opacity: 0.8; }
             100% { transform: translateY(-110vh) rotate(45deg); opacity: 0; }
         }
+
     </style>
+
 </head>
 
 <body>
@@ -151,6 +204,7 @@
     <div class="heart" style="left:85%; background:orange; animation-delay:1s;"></div>
 
     <div class="card">
+
         <div class="special-text">
             <span style="animation-delay:0.1s;">A</span><span style="animation-delay:0.2s;">m</span><span style="animation-delay:0.3s;">m</span><span style="animation-delay:0.4s;">u</span><span style="animation-delay:0.5s;">u</span> 
             <span style="animation-delay:0.6s;">&nbsp;e</span><span style="animation-delay:0.7s;">n</span><span style="animation-delay:0.8s;">i</span><span style="animation-delay:0.9s;">k</span><span style="animation-delay:1.0s;">k</span><br>
@@ -167,25 +221,24 @@
             <button class="btn yes-btn" onclick="location.href='page2.html'">YES 💖</button>
             <button class="btn no-btn" id="noBtn">NO 🙈</button>
         </div>
+
     </div>
 
     <script>
         const noBtn = document.getElementById("noBtn");
 
-        // Moves the 'No' button randomly when hovered or touched
         function moveButton() {
-            const x = Math.random() * 150 - 75; // Horizontal movement
-            const y = Math.random() * 100 - 50; // Vertical movement
+            const x = Math.random() * 150 - 75;
+            const y = Math.random() * 100 - 50;
             noBtn.style.transform = `translate(${x}px, ${y}px)`;
         }
 
         noBtn.addEventListener("mouseover", moveButton);
         noBtn.addEventListener("touchstart", (e) => {
-            e.preventDefault(); // Prevents clicking the button on touchscreens
+            e.preventDefault();
             moveButton();
         });
     </script>
 
 </body>
 </html>
-
