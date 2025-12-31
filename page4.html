@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+
+<!-- ✅ MOBILE VIEWPORT (VERY IMPORTANT) -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy New Year 2026 ❤️</title>
 
 <style>
@@ -22,10 +26,12 @@ body{
   left:50%;
   transform:translate(-50%, -50%);
   background:rgba(255,255,255,0.08);
-  padding:40px;
+  padding:30px;
   border-radius:25px;
   box-shadow:0 0 30px rgba(255,77,109,0.6);
   display:none;
+  width:90%;
+  max-width:420px;
 }
 
 /* Countdown */
@@ -39,14 +45,14 @@ body{
 
 /* Glow text */
 h1{
-  font-size:3em;
+  font-size:2.5em;
   color:#ff4d6d;
   text-shadow:0 0 15px #ff4d6d, 0 0 30px #ff99aa;
   animation:pulse 2s infinite;
 }
 
 p{
-  font-size:1.2em;
+  font-size:1.1em;
   line-height:1.6;
 }
 
@@ -83,6 +89,13 @@ p{
   0%{transform:scale(0); opacity:1;}
   100%{transform:scale(15); opacity:0;}
 }
+
+/* 📱 EXTRA SMALL PHONES */
+@media (max-width:480px){
+  #countdown{ font-size:4.5em; }
+  h1{ font-size:2em; }
+  p{ font-size:1em; }
+}
 </style>
 </head>
 
@@ -96,7 +109,8 @@ p{
   <h1>🎆 Happy New Year Ammuu 2026 🎆</h1>
 
   <p style="margin-top:20px;">
-     We stayed strong… January 29 il thodangiya journey 2026 il ethi..I LOVE YOU Alisuu😘😘😘😘❤️💕💕💕💕 </p>
+     We stayed strong… January 29 il thodangiya journey 2026 il ethi..I LOVE YOU Alisuu😘😘😘😘❤️💕💕💕💕
+  </p>
 </div>
 
 <script>
@@ -144,12 +158,6 @@ function startFireworks(){
 }
 </script>
 
-<!-- 🎵 Optional romantic background music -->
-<!--
-<audio autoplay loop>
-  <source src="romantic.mp3" type="audio/mpeg">
-</audio>
--->
-
 </body>
 </html>
+
