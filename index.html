@@ -2,39 +2,60 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>For My Love ❤️</title>
 
 <style>
 body{
   margin:0;
-  min-height:100vh;
   background: linear-gradient(#ff9a9e, #fad0c4);
   font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 40px 15px;
+  overflow: hidden;
+  min-height: 100vh;
+
+  /* ✅ CENTER CONTENT PROPERLY ON MOBILE */
   display:flex;
-  align-items:center;
   justify-content:center;
-  padding: 20px 12px;
-  overflow-y:auto;   /* ✅ allow scroll */
+  align-items:center;
 }
 
 /* 💎 Card */
 .card{
   background: white;
   border-radius: 25px;
-  padding: 25px;
-  width: 92%;
+  padding: 30px;
   max-width: 420px;
+  width: 100%;
+  margin: auto;
   position: relative;
   z-index: 5;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  animation: fadeIn 2s ease-in-out;
+
+  /* ✨ Smooth entrance */
+  animation: floatIn 1.5s ease forwards;
 }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:scale(0.95);}
-  to{opacity:1; transform:scale(1);}
+/* ✨ Glow Aura */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-15px;
+  border-radius:30px;
+  background: radial-gradient(circle, rgba(255,77,109,0.35), transparent 70%);
+  z-index:-1;
+}
+
+/* Entrance animation */
+@keyframes floatIn{
+  from{
+    opacity:0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to{
+    opacity:1;
+    transform: translateY(0) scale(1.05);
+  }
 }
 
 /* 🌸 Special Heading Animation */
@@ -42,7 +63,7 @@ body{
   font-size: 26px;
   font-weight: bold;
   color: #ff4d6d;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .special-text span{
@@ -76,9 +97,9 @@ body{
 /* 💕 Buttons */
 .btn{
   border:none;
-  padding:14px 26px;
+  padding:15px 30px;
   border-radius:30px;
-  font-size:17px;
+  font-size:18px;
   cursor:pointer;
   margin:10px;
   transition:0.3s;
@@ -103,37 +124,39 @@ body{
   100%{transform:scale(1);}
 }
 
-/* ❤️ Floating Hearts */
+/* ❤️ Floating Hearts (FULL SCREEN) */
 .heart{
   position: fixed;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   background: red;
   transform: rotate(45deg);
   animation: floatUp 6s linear infinite;
   z-index: 1;
+  top: 100%;
 }
+
 .heart:before,.heart:after{
   content:"";
   position:absolute;
-  width:18px;
-  height:18px;
+  width:20px;
+  height:20px;
   background:inherit;
   border-radius:50%;
 }
-.heart:before{top:-9px;}
-.heart:after{left:9px;}
+.heart:before{top:-10px;}
+.heart:after{left:10px;}
 
 @keyframes floatUp{
-  0%{bottom:-10%; opacity:1;}
-  100%{bottom:110%; opacity:0;}
+  0%{transform: translateY(0) rotate(45deg); opacity:1;}
+  100%{transform: translateY(-130vh) rotate(45deg); opacity:0;}
 }
 
-/* 📱 SMALL PHONES */
+/* 📱 Mobile Fine Tuning */
 @media (max-width:480px){
-  .special-text{font-size:22px;}
-  p{font-size:15px;}
-  .btn{font-size:16px;}
+  .card{
+    transform: scale(1.05);
+  }
 }
 </style>
 </head>
@@ -149,9 +172,44 @@ body{
 
 <div class="card">
 
+  <!-- 🌸 Animated Special Line -->
   <div class="special-text heartbeat">
-    <!-- letters unchanged -->
-    Ammuu enikk korach karyam parayanond
+    <span style="animation-delay:0s;">A</span>
+    <span style="animation-delay:0.1s;">m</span>
+    <span style="animation-delay:0.2s;">m</span>
+    <span style="animation-delay:0.3s;">u</span>
+    <span style="animation-delay:0.4s;">u</span>
+    <span style="animation-delay:0.5s;">&nbsp;</span>
+    <span style="animation-delay:0.6s;">e</span>
+    <span style="animation-delay:0.7s;">n</span>
+    <span style="animation-delay:0.8s;">i</span>
+    <span style="animation-delay:0.9s;">k</span>
+    <span style="animation-delay:1s;">k</span>
+    <span style="animation-delay:1.1s;">&nbsp;</span>
+    <span style="animation-delay:1.2s;">k</span>
+    <span style="animation-delay:1.3s;">o</span>
+    <span style="animation-delay:1.4s;">r</span>
+    <span style="animation-delay:1.5s;">a</span>
+    <span style="animation-delay:1.6s;">c</span>
+    <span style="animation-delay:1.7s;">h</span>
+    <span style="animation-delay:1.8s;">&nbsp;</span>
+    <span style="animation-delay:1.9s;">k</span>
+    <span style="animation-delay:2s;">a</span>
+    <span style="animation-delay:2.1s;">r</span>
+    <span style="animation-delay:2.2s;">y</span>
+    <span style="animation-delay:2.3s;">a</span>
+    <span style="animation-delay:2.4s;">m</span>
+    <span style="animation-delay:2.5s;">&nbsp;</span>
+    <span style="animation-delay:2.6s;">p</span>
+    <span style="animation-delay:2.7s;">a</span>
+    <span style="animation-delay:2.8s;">r</span>
+    <span style="animation-delay:2.9s;">a</span>
+    <span style="animation-delay:3s;">y</span>
+    <span style="animation-delay:3.1s;">a</span>
+    <span style="animation-delay:3.2s;">n</span>
+    <span style="animation-delay:3.3s;">o</span>
+    <span style="animation-delay:3.4s;">n</span>
+    <span style="animation-delay:3.5s;">d</span>
   </div>
 
   <p class="fade delay1"><b>Chakkare..</b> This is only for you ❤️</p>
@@ -184,6 +242,7 @@ function moveButton(){
 
 </body>
 </html>
+
 
 
 
