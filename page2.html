@@ -7,45 +7,50 @@
 <style>
 body{
   margin:0;
-  background: linear-gradient(#ffe5ec, #ffd6e0);
+  background: radial-gradient(circle at top, #ffd1dc, #ffe5ec);
   font-family: Arial, sans-serif;
-  text-align:center;
   overflow:hidden;
   min-height:100vh;
 
   display:flex;
   justify-content:center;
-  align-items:center;
-  padding:20px;
+
+  /* 🔑 NOT PERFECT CENTER */
+  align-items:flex-start;
+  padding-top:12vh;
 }
 
 /* 💎 Card */
 .card{
   background:white;
-  padding:32px;
-  border-radius:24px;
-  width:100%;
-  max-width:480px;   /* desktop limit */
+  padding:40px 28px;
+  border-radius:26px;
+  width:92vw;
+  max-width:500px;
   position:relative;
   z-index:5;
-  box-shadow:0 12px 35px rgba(0,0,0,0.22);
+  box-shadow:0 18px 45px rgba(255,77,109,0.35);
   animation: floatIn 1.6s ease forwards;
 }
 
-/* ✨ Soft glow */
+/* ✨ Strong romantic glow */
 .card::before{
   content:"";
   position:absolute;
-  inset:-16px;
-  border-radius:30px;
-  background: radial-gradient(circle, rgba(255,77,109,0.35), transparent 70%);
+  inset:-25px;
+  border-radius:36px;
+  background:
+    radial-gradient(circle at top,
+      rgba(255,77,109,0.45),
+      transparent 70%);
   z-index:-1;
 }
 
+/* Entrance */
 @keyframes floatIn{
   from{
     opacity:0;
-    transform: translateY(40px) scale(0.96);
+    transform: translateY(60px) scale(0.94);
   }
   to{
     opacity:1;
@@ -55,28 +60,29 @@ body{
 
 /* 💖 Text */
 .love-text{
-  font-size:18px;
+  font-size:19px;
   font-weight:bold;
   color:#ff4d6d;
-  line-height:1.7;
+  line-height:1.75;
+  text-align:center;
   animation: floatText 3s ease-in-out infinite;
 }
 
 @keyframes floatText{
   0%{transform:translateY(0);}
-  50%{transform:translateY(-6px);}
+  50%{transform:translateY(-8px);}
   100%{transform:translateY(0);}
 }
 
-/* ❤️ Floating Hearts */
+/* ❤️ Floating Hearts (MORE DENSITY) */
 .heart{
   position:fixed;
-  width:18px;
-  height:18px;
+  width:20px;
+  height:20px;
   background:red;
   transform:rotate(45deg);
-  animation: floatUp 6s linear infinite;
-  opacity:0.7;
+  animation: floatUp 7s linear infinite;
+  opacity:0.8;
   z-index:1;
   top:100%;
 }
@@ -85,135 +91,78 @@ body{
 .heart::after{
   content:"";
   position:absolute;
-  width:18px;
-  height:18px;
+  width:20px;
+  height:20px;
   background:inherit;
   border-radius:50%;
 }
-.heart::before{top:-9px;}
-.heart::after{left:9px;}
+.heart::before{top:-10px;}
+.heart::after{left:10px;}
 
 @keyframes floatUp{
   0%{transform: translateY(0) rotate(45deg); opacity:0;}
-  20%{opacity:1;}
-  100%{transform: translateY(-130vh) rotate(45deg); opacity:0;}
+  15%{opacity:1;}
+  100%{transform: translateY(-140vh) rotate(45deg); opacity:0;}
 }
 
-/* ✨ Sparkles */
-.sparkle{
+/* ✨ Ambient glow dots */
+.glow{
   position:fixed;
-  width:6px;
-  height:6px;
-  background:white;
-  border-radius:50%;
-  box-shadow:0 0 12px white;
-  animation: sparkle 4s infinite;
-  opacity:0;
-  z-index:2;
+  width:140px;
+  height:140px;
+  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+  filter: blur(10px);
+  animation: glowMove 10s ease-in-out infinite;
+  z-index:0;
 }
 
-@keyframes sparkle{
-  0%{opacity:0;}
-  50%{opacity:1;}
-  100%{opacity:0;}
+@keyframes glowMove{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-60px);}
+  100%{transform:translateY(0);}
 }
 
 /* 💌 Button */
 .romantic-btn{
-  position:relative;
-  margin-top:32px;
+  margin-top:38px;
   background: linear-gradient(45deg,#ff4d6d,#ff85a2);
   color:white;
-  padding:18px 30px;
+  padding:22px 36px;
   border:none;
-  border-radius:38px;
-  font-size:17px;
+  border-radius:40px;
+  font-size:18px;
   cursor:pointer;
-  box-shadow:0 0 22px rgba(255,77,109,0.75);
+  box-shadow:0 0 28px rgba(255,77,109,0.85);
   animation: heartbeat 2s infinite;
-  overflow:hidden;
 }
 
 @keyframes heartbeat{
   0%{transform:scale(1);}
-  25%{transform:scale(1.08);}
+  25%{transform:scale(1.1);}
   50%{transform:scale(1);}
-  75%{transform:scale(1.08);}
+  75%{transform:scale(1.1);}
   100%{transform:scale(1);}
-}
-
-.romantic-btn::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.6),
-    transparent
-  );
-  animation: shine 3s infinite;
-}
-
-@keyframes shine{
-  0%{left:-100%;}
-  50%{left:100%;}
-  100%{left:100%;}
-}
-
-.romantic-btn span{
-  position:absolute;
-  bottom:6px;
-  font-size:14px;
-  animation: miniHearts 2s infinite;
-}
-
-@keyframes miniHearts{
-  0%{opacity:0; transform:translateY(10px);}
-  50%{opacity:1;}
-  100%{opacity:0; transform:translateY(-25px);}
-}
-
-/* 📱 MOBILE BOOST (THIS FIXES YOUR ISSUE) */
-@media (max-width:480px){
-  .card{
-    max-width:95vw;   /* BIG & BEAUTIFUL */
-    padding:36px 26px;
-  }
-
-  .love-text{
-    font-size:19px;
-  }
-
-  .romantic-btn{
-    font-size:18px;
-    padding:20px 34px;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ❤️ Hearts -->
-<div class="heart" style="left:10%;"></div>
-<div class="heart" style="left:30%; background:pink; animation-delay:2s;"></div>
-<div class="heart" style="left:50%; background:#ff85a2; animation-delay:4s;"></div>
-<div class="heart" style="left:70%; background:orange; animation-delay:1s;"></div>
-<div class="heart" style="left:90%; background:purple; animation-delay:3s;"></div>
+<!-- 🌸 Ambient glow -->
+<div class="glow" style="top:15%; left:10%;"></div>
+<div class="glow" style="top:55%; right:10%; animation-delay:5s;"></div>
 
-<!-- ✨ Sparkles -->
-<div class="sparkle" style="top:20%; left:15%;"></div>
-<div class="sparkle" style="top:45%; left:75%;"></div>
-<div class="sparkle" style="top:70%; left:30%;"></div>
-<div class="sparkle" style="top:60%; left:55%;"></div>
+<!-- ❤️ More Hearts -->
+<div class="heart" style="left:5%;"></div>
+<div class="heart" style="left:20%; background:pink; animation-delay:2s;"></div>
+<div class="heart" style="left:40%; background:#ff85a2; animation-delay:4s;"></div>
+<div class="heart" style="left:60%; background:orange; animation-delay:1s;"></div>
+<div class="heart" style="left:80%; background:purple; animation-delay:3s;"></div>
+<div class="heart" style="left:95%; animation-delay:5s;"></div>
 
 <div class="card">
   <p class="love-text">
-    Appo nammal bharya bharthakkanmarakum orappa le 😘.<br><br>
+    Appo nammal bharya bharthakkanmarakum orappa le 😘<br><br>
     2025 enth beautiful arunnu le.. nammal nammude feelings open aayi paranja varsham..
     nammal nammale thanne kore manasilakkiya varsham.. nammal snehicha varsham..
     kore adi okke ondayitoond.. but nammude snehathe ath baadichittilla...
@@ -222,13 +171,11 @@ body{
 
   <a href="page3.html">
     <button class="romantic-btn">
-      nammukk ath onn kandalo Ammuu…
-      <span style="left:25%;">❤️</span>
-      <span style="left:55%; animation-delay:0.5s;">💖</span>
-      <span style="left:80%; animation-delay:1s;">💕</span>
+      nammukk ath onn kandalo Ammuu… 💖
     </button>
   </a>
 </div>
 
 </body>
 </html>
+
